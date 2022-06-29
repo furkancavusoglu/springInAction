@@ -1,4 +1,12 @@
 spring:
+  rabbitmq:
+    host: rabbit.tacocloud.com
+    port: 5673
+    username: tacoweb
+    password: l3tm31n
+    template:
+      exchange: tacocloud.order
+      routing-key: kitchens.central
   data:
     rest:
       base-path: /data-api
@@ -19,16 +27,3 @@ taco:
     codes:
       abcdef: 10
 
-
----
-spring:
-  profiles: prod
-
-  datasource:
-    url: jdbc:mysql://localhost/tacocloud
-    username: tacouser
-    password: tacopassword
-
-logging:
-  level:
-    tacos: WARN
